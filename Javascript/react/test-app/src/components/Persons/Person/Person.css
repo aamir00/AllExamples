@@ -1,0 +1,18 @@
+.Person {
+	border: 1px solid #eee;
+	padding: 4px;
+	border-radius: 5px;
+	margin: 16px;
+	box-shadow: 0 2px 3px #eee;
+}
+
+@media (min-width: 500px) {
+	.Person {
+		width: 500px;
+	}
+}
+
+.Person button:hover {
+	background-color: maroon;
+	color: white;
+}

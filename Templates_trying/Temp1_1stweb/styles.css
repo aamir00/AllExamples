@@ -1,0 +1,45 @@
+body {
+	background-image: url('img/bg.png');
+	color: #000305;
+	font-size: 87.5%; /* base fonst is 14px */
+	font-family: Arial, 'Lucida Sans Unicode';
+	line-height: 1.5;
+	text-align: left;
+}
+
+.body {
+	margin: 0 auto;
+	width: 70%;
+	clear: both;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link,
+a:visited {
+}
+
+a:hover,
+a:active {
+}
+
+.mainheader img {
+	width: 11%;
+	height: auto;
+	margin: 2% 0;
+}
+
+.mainheader nav {
+	background-color: #6666;
+	height: 40px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.mainheader nav ul {
+	list-style: none;
+	margin: 0 auto;
+}

@@ -1,0 +1,38 @@
+body {
+	margin: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header {
+	position: fixed;
+	height: 50px;
+	top: 0;
+	background-color: #438eb9;
+	width: 100%;
+	color: white;
+	display: inline;
+}
+
+.header .menu-items {
+	width: 40%;
+	float: right;
+}
+
+.header .menu-items ul > li {
+	list-style: none;
+	list-style-type: none;
+}
+
+.header .logo {
+	width: 20%;
+	float: left;
+}
+
+.sidebar {
+	margin-top: 50px;
+	width: 200px;
+	position: fixed;
+	height: 100%;
+	left: 0;
+	background-color: #f2f2f2;
+}

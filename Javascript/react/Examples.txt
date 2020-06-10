@@ -1,0 +1,29 @@
+
+- https://codepen.io/anon/pen/MELQaQ -- basic example
+- https://medium.com/engineered-publicis-sapient/javascript-es6-es7-es10-where-are-we-8ac044dfd964
+
+
+npm install create-react-app 
+create-react-app <app-name> --scripts-version 1.1.5 // starting command
+
+npm install --save radium // package to used for styles
+another package similat or radium is styled-components
+
+
+
+https://medium.com/nulogy/how-to-use-css-modules-with-create-react-app-9e44bec2b5c2
+
+
+
+Components:
+----------
+
+- Set the Intial state from the props using constructor  ( Constructor will not be called when there is change in state)
+
+
+Didn't Go enough through:
+-----------
+- Error Boundary
+- Styled-components Radium
+-- component update lyf cycle
+

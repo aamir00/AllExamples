@@ -1,0 +1,28 @@
+.App {
+	margin: auto;
+}
+
+:global button {
+	margin: 5px;
+	padding: 2px 6px;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+:global .danger {
+	background-color: maroon;
+	color: white;
+}
+
+:global .success {
+	background-color: cadetblue;
+	color: white;
+}
+
+:global button.danger:hover {
+	background-color: red;
+}
+
+:global button.success:hover {
+	background-color: green;
+}

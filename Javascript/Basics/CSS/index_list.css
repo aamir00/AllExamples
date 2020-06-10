@@ -1,0 +1,30 @@
+.container1 {
+	border: 4px solid;
+	border-color: black;
+	/* text-align: center; */
+}
+
+h1 {
+	text-align: center;
+}
+.container1 ul {
+	list-style: none;
+}
+
+.container1 a {
+	text-decoration: none;
+	color: rgb(1, 10, 56);
+}
+
+.container1 a:hover {
+	color: blueviolet;
+}
+
+.container1 li {
+	list-style-image: url('images/checkbox-resized.png');
+	list-style-position: inside;
+	border-bottom: 1px solid;
+	padding-bottom: 12px;
+	padding-top: 10px;
+	border-color: gray;
+}

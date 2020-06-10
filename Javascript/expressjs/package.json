@@ -1,0 +1,22 @@
+{
+	"name": "express_cheatsheet",
+	"version": "1.0.0",
+	"description": "Cheatsheet Expressjs",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index",
+		"start-dev": "nodemon index"
+	},
+	"author": "Amair",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.17.1",
+		"express-handlebars": "^4.0.4",
+		"moment": "^2.25.3",
+		"uuid": "^8.0.0"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	}
+}
