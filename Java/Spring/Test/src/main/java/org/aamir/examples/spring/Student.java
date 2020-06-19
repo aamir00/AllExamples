@@ -34,7 +34,7 @@ public class Student implements User, ApplicationContextAware, BeanNameAware, In
     @Qualifier("messageSource")
     public void setMessageSource(MessageSource messageSource) {
         this.messageSource = messageSource;
-    }   
+    }
 
     public String getName() {
         return name;
