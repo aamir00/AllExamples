@@ -1,0 +1,96 @@
+
+- Spring uses dependency injection concept to intialize the objects
+
+
+Autowire by name:
+----------------
+
+- Checks for the beans declared with same name and autowires them
+
+
+Bean Scopes:
+------------
+
+ApplicationContext when intialized creates the beans by default, before we actually perform applicationContext.getBean('user'). The behavior though can be modified.
+
+- Singleton Scope : Only once per Spring Container, if we do getBean elsewhere then same bean is obtained (default)
+- Prototype : new beans with every request, even the referenced beans will be new. Initialization will also occur when we call getBean()
+- Web-aware Context Bean Scope :
+	- Request- New Bean will be created every request
+	- Session - New Bean per Session
+	- Global Session - New Bean per global HTTP session (portlet context)
+	
+ApplicationContextAware:
+-------------------------
+
+- To get access to the ApplicationContext in the member objects, can be used to intialize new or get old beans
+
+BeanNameAware:
+-------------
+
+- gives the name of the bean name that implements BeanNameAware class
+
+
+BeanDefinitionInheritance:
+-----------------------
+
+- We can create a bean definition and pass it as the configuration to other beans in the spring, the Bean definition can be inherited from a proper bean or an abstract bean
+
+
+LifeCycle Callbacks:
+--------------------
+
+- Configure callbacks to do cleanup or intialize the app
+- can specify init method on <bean> tag in the xml file
+
+
+BeanPostProcessor:
+-----------------
+
+- PostProcessor is executed after intializing of each bean
+- need to extend BeanPostProcessor interface
+-  need to declare inside the spring.xml as  <bean class="org.aamir.examples.spring.MyBeanPostProcessor" />, will get applied to the beans inside the spring xml
+
+BeanFactoryPostProcessor:
+-------------------------
+
+- same as above but for beanfactory
+
+coding-to-interfaces:
+--------------------
+
+Autowired:
+----------
+
+-
+-	If multiple beans are there in spring.xml then it will look for bean name and it should match the property name
+-	If only one bean is there in spring.xml then it will be autowired to the property
+- Autowired is used along with the qualifier to wired the particular bean to the property.
+
+
+
+JSR-250: (Java Specification Request)
+----------
+
+- Standard annotations that applies across different technologies
+-	@Resource : does dependency injection 
+	@Resource( name="subject") // subject bean is wired
+
+- Below annotation gives extra information to spring regarding the role the class is playing
+
+@Component - defines the class to be a bean // instead of declaring it in the spring-bean.xml
+@Service
+@Controller - tells that the class is a controller
+@Data
+
+
+Using MessageSource to get text from properties files:
+------------------------------------------------------
+
+
+
+
+
+	
+
+

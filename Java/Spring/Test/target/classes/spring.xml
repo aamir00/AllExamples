@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd" default-destroy-method="cleanup" >
+
+<!--    Abstract-true doesn't initialize the bean   -->
+
+    <bean id="sampleStudent" class="org.aamir.examples.spring.Student" abstract="true"  init-method="myInit" >
+        <property name="subject">
+            <bean class="org.aamir.examples.spring.Subject">
+                <property name="name" value="Algorithms-101"/>
+                <property name="id" value="A.101"/>
+            </bean>
+        </property>
+        <property name="vehicles">
+            <list>
+                <ref bean="vh1" />
+                <ref bean="vh2" />
+            </list>
+        </property>
+    </bean>
+
+
+<!--    Student the Sample Student definition for other configurations -->
+    <bean id="student" class="org.aamir.examples.spring.Student" scope="prototype" parent="sampleStudent" >
+        <property name="name" value="${amair.name}"/>
+        <property name="id" value="${amair.id}"/>
+    </bean>
+
+
+<!--    The below bean can also be declared inside the parent bean  -->
+
+<!--    <bean id="subject" class="org.aamir.examples.spring.Subject">-->
+<!--        <property name="name" value="Algo101"/>-->
+<!--        <property name="id" value="al101"/>-->
+<!--    </bean>-->
+
+
+    <alias name="student" alias="student1" />
+
+    <bean id="vh1" class="org.aamir.examples.spring.Vehicle">
+        <property name="name" value="BMW" />
+        <property name="id" value="TS000"/>
+    </bean>
+
+    <bean id="vh2" class="org.aamir.examples.spring.Vehicle">
+        <property name="name" value="Mercedes" />
+        <property name="id" value="TS150"/>
+    </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" >
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--Inside Post Processors -->
+    <bean class="org.aamir.examples.spring.MyBeanPostProcessor" />
+    <bean class="org.aamir.examples.spring.MyBeanFactoryPostProcessor" />
+
+    <!--property place holder -->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+        <property name="locations" value="test.properties"/>
+    </bean>
+
+    <!--Required Annotation Bean processor - This will get caught while initializing the bean and not while running the app -->
+
+<!--    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />-->
+
+
+    <!-- The Below is a shortcut for including the annotation bean postprocessor
+          Therefore if we include below line then requiredAnnotationBeanPostProcessor is not necessary, same for autowired
+    -->
+
+    <context:annotation-config>
+
+    </context:annotation-config>
+
+
+<!--    Scans for the components -->
+
+    <context:component-scan base-package="org.aamir.examples.spring" />
+
+
+</beans>

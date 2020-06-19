@@ -1,0 +1,14 @@
+Archetype - type of maven repo and management we want to create, we can select from a list based on our requirement.
+
+
+Maven is based on plugin assembly, maven compiler is also a plugin!
+
+Many stages of Maven 
+
+mvn archetype:generate // specify archetype, groupId, artifactId
+mvn compile
+mvn install
+mvn package
+mvn deploy // push to some external maven repo
+
+mvn dependency:resolve

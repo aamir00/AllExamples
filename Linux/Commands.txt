@@ -1,0 +1,7 @@
+Basic:
+-------
+
+w // gives more information about the logged used similar to who
+
+
+

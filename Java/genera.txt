@@ -1,0 +1,19 @@
+https://roadmap.sh/backend
+
+Lp:
+-----
+
+Servlets  and JSPs
+Spring Framework
+Spring MVC
+Hibernate
+Spring Boot
+Spring Projects
+Micro Services
+Java EE - JAX-RS, JPA, JAX-WS
+Design Patterns
+Git
+Build Systems
+DAA
+
+Build Something - Work on it

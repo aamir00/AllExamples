@@ -1,0 +1,108 @@
+
+Container:
+==========
+
+
+docker images // list of images
+
+docker run -it busybox:1.24 // launches interactive container (i) from the image and attaches terminal (t) is for tty - terminal, docker also removes the container once we exit
+
+Example:
+--------
+
+docker run -it busybox -container will exit once we get exit from terminal as the command (-it) is terminated
+
+docker run -dit busybox - will launch the container in backround and command running is /bin/bash
+docker run -dit --rm --name tomcat-latest -p 5003:8080 tomcat:latest // launches tomcat and the command ran is catalina.sh run
+docker exec -it busybox bash - will launch another terminal and if we exit this the container will still run
+
+docker run -d ubuntu // running ubuntu in detached mode, this will exit immediately -it are compulsory
+
+
+docker ps // have command column that we ran on container while starting
+example: "docker run -dit ubuntu" will run the container in background and the command we have executed on the container while starting it is is /bin/bash
+
+docker ps -a //shows previously running container, we can again start them
+
+docker ps -dit --rm ubuntu // this will remove the container when the container is exited
+
+Note: 
+-----
+If we stop the container - and if we have started it again from "docker ps -a" list, the container will have the changes
+
+
+docker inspect // displays low level information on container or image
+
+docker container prune // this will remove all non running containers
+
+docker run -it -p externalport:internalport tomcat 
+
+docker run -dit --rm --name tomcat-latest -p 5003:8080 tomcat:latest // launches tomcat and the command ran is catalina.sh run
+docker logs tomcat // logs of te container
+
+
+Images:
+=======
+
+- check full list of images using the command "docker history busybox"
+- All changes made into the container will be written into the writable layer
+- When the container is deleted the writable layer is also deleted, but the underlying image remains the same
+- Multiple container can share the same image
+
+
+
+
+Ways to build docker Image:
+--------------------------
+
+- Commit changes made in the docker container
+- Write a docker file
+
+Example:
+
+docker exec -it --name deb debian:latest 
+apt-get install git
+docker commit deb amairkhan\debian:1.00
+
+DockerFile:
+============
+
+- A DockerFile is a set of instructions we provide to assemble the image
+- Build context path:
+	- Docker build command takes the path to the build context as an argument
+	- When build starts, docker client packs all the files in the build context into a tarball	then transfer the tarball to daemon
+	- By default docker would search for the DockerFile in build context path
+	
+
+FROM - base Image ?
+RUN - instruction to run ? it can be any linux terminal command
+
+
+- docker build -t amairkhan/debian:2.0 . // last argument is build context path and -t is the image tag
+
+
+CHAIN RUN INSTRUCTIONS:
+-----------------------
+
+- Each RUN command will execute the command on top wirtable layer of the container, then commit the container as new image
+- The new image is used for the next step in the DockerFile. So each RUN instruction will create a new layer.
+
+- CMD is the command we want to run when the container starts
+
+- WE can specify the command either in either exec or shell form
+
+Note: If we dont specify CMD instruction in dockerfile then docker will use the default command specified in the base image( bash in debian). It also doesn't run while building the image.
+
+- COPY instruction is used for copying base machine files into docker container
+
+- ADD is similar but COPY must be used often
+
+- use docker hub to push the images
+
+
+
+
+
+
+
+

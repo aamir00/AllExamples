@@ -12,18 +12,20 @@ class Test extends PureComponent {
 		return state;
 	}
 
-	shouldComponentUpdate(nextProps, nextState) {
-		console.log('Inside [Test] shouldComponetUpdate');
-		/**
-		 * Checks for updating the component, PureComponent is better approach
-		 */
+	// ShouldComponentUpdate cannot be used with the PureComponent
 
-		// if (nextProps.data !== this.props.data || nextProps.show !== this.props.show) {
-		// 	return true;
-		// } else {
-		// 	return false;
-		// }
-	}
+	// shouldComponentUpdate(nextProps, nextState) {
+	// 	console.log('Inside [Test] shouldComponetUpdate');
+	// 	/**
+	// 	 * Checks for updating the component, PureComponent is better approach
+	// 	 */
+
+	// 	// if (nextProps.data !== this.props.data || nextProps.show !== this.props.show) {
+	// 	// 	return true;
+	// 	// } else {
+	// 	// 	return false;
+	// 	// }
+	// }
 
 	//getsnapshotbeforeupdate of all the components gets executed first, and after that componentDidUpdate() gets executed
 	getSnapshotBeforeUpdate(prevProps, prevState) {
